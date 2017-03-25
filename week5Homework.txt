@@ -1,0 +1,73 @@
+2.
+for (var i = 0; i < 3; i++) {
+      setTimeout(function() { alert(i); }, 1000 + i);
+}
+
+The output is alert(3) & alert(3) & alert(3) because the functions will be executed after the FOR loop is finished with the value i=3
+
+
+3.
+function add(x){
+return function (y){return x+y};
+};
+
+var addSix = add(6);
+
+addSix(10); // returns 16
+addSix(21); // returns 27
+
+
+4.
+<button id="btn-0">Button 1!</button>
+<button id="btn-1">Button 2!</button>
+<button id="btn-2">Button 3!</button>
+
+<script type="text/javascript">
+    var prizes = ["A Unicorn!", 'A Hug!', 'Fresh Laundry!'];
+    
+
+       function fun (btnNum){return function() {
+            
+            // tell her what she's won!
+            alert(prizes[btnNum]);
+           
+        };
+                            };
+    
+    for (var btnNum = 0; btnNum < prizes.length; btnNum++) {
+        // for each of our buttons, when the user clicks it...
+        document.getElementById('btn-' + btnNum).onclick = fun (btnNum)
+    }
+
+</script> 
+ 
+Rewrite to Async:
+1.
+calculateSum(2, 6,function(sum){console.log(sum)});
+
+2.
+$.getJSON('http://myapi.com',function(results){
+showResults(results);});
+
+3.
+calculateSum(2, 6,function(sum){if (sum > 8) {
+    console.log('larger than 8');
+}});
+
+4.
+$.getJSON('http://myapi.com',function(data){data.map(function (x) { return x * 8; })});
+
+
+
+
+TODO !!!
+
+
+$.getJSON("https://reqres.in/api/users?delay=3",function(data){
+console.log(data);});
+
+$.getJSON("https://reqres.in/api/users/2", function(data){
+
+console.log(data);});
+
+console.log("hello")    
